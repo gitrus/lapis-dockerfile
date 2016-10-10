@@ -3,28 +3,28 @@ FROM debian:latest
 # install build dependencies
 RUN apt-get -qq update \
   && apt-get -qq -y install \
-  libreadline-dev \
-  libncurses5-dev \
-  libpcre3-dev \
-  libssl-dev \
-  libpq-dev \
-  libgd-dev \
-  libgeoip-dev \
-  libncurses5-dev \
-  libperl-dev \
-  libxslt1-dev \
-  perl \
-  make \
-  curl \
-  git-core \
-  luarocks \
-  vim \
-  luajit \
-  build-essential \
-  ca-certificates \
-  unzip \
-  zlib1g-dev \
-  lua-sec
+    libreadline-dev \
+    libncurses5-dev \
+    libpcre3-dev \
+    libssl-dev \
+    libpq-dev \
+    libgd-dev \
+    libgeoip-dev \
+    libncurses5-dev \
+    libperl-dev \
+    libxslt1-dev \
+    build-essential \
+    ca-certificates \
+    curl \
+    git-core \
+    luarocks \
+    lua-sec \
+    luajit \
+    make \
+    perl \
+    vim \
+    unzip \
+    zlib1g-dev
 
 # build/install OpenResty
 ENV SRC_DIR /opt
