@@ -74,7 +74,8 @@ RUN cd $SRC_DIR && curl -LO https://openresty.org/download/openresty-$OPENRESTY_
      && luarocks install lapis \
      && luarocks install lapis-console \
      && luarocks install lua-resty-http \
-     && luarocks install luatz
+     && luarocks install luatz \
+     && luarocks install stringy
 
  ENV LAPIS_OPENRESTY /opt/openresty/nginx/sbin/nginx
 
