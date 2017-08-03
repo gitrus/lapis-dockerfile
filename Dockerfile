@@ -28,9 +28,9 @@ RUN apt-get -qq update \
 
 # build/install OpenResty
 ENV SRC_DIR /opt
-ENV OPENRESTY_VERSION 1.9.15.1
+ENV OPENRESTY_VERSION 1.11.2.4
 ENV OPENRESTY_PREFIX /opt/openresty
-ENV LAPIS_VERSION 1.5.1
+ENV LAPIS_VERSION 1.6.0
 
 RUN cd $SRC_DIR && curl -LO https://openresty.org/download/openresty-$OPENRESTY_VERSION.tar.gz \
  && tar xzf openresty-$OPENRESTY_VERSION.tar.gz && cd openresty-$OPENRESTY_VERSION \
@@ -80,6 +80,7 @@ RUN cd $SRC_DIR && curl -LO https://openresty.org/download/openresty-$OPENRESTY_
  ENV LAPIS_OPENRESTY /opt/openresty/nginx/sbin/nginx
 
  EXPOSE 80
+ EXPOSE 443
 
  WORKDIR /app
  VOLUME /app
