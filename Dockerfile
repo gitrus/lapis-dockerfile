@@ -23,11 +23,12 @@ RUN apt-get -qq update \
     lua-sec
 
 # build/install OpenResty
-ENV OPENRESTY_VERSION 1.11.2.4
-ENV OPENRESTY_PREFIX /opt/openresty
-ENV LAPIS_VERSION 1.6.0
+ENV OPENRESTY_VERSION=1.11.2.4
+ENV OPENRESTY_PREFIX=/opt/openresty
+ENV LAPIS_VERSION=1.6.0
+ENV BIN_DIR=/tmp
 
-RUN cd $SRC_DIR && curl -LOs https://openresty.org/download/openresty-$OPENRESTY_VERSION.tar.gz \
+RUN cd $BIN_DIR && curl -LOs https://openresty.org/download/openresty-$OPENRESTY_VERSION.tar.gz \
     && tar xzf openresty-$OPENRESTY_VERSION.tar.gz && cd openresty-$OPENRESTY_VERSION \
     && ./configure --prefix=$OPENRESTY_PREFIX \
     --with-file-aio \
