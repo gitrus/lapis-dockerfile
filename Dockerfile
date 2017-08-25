@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+ENV TZ='Etc/GMT'
+
 # install build dependencies
 RUN apt-get -qq update \
     && apt-get -qq -y install \
@@ -20,7 +22,13 @@ RUN apt-get -qq update \
     curl \
     git-core \
     luarocks \
-    lua-sec
+    lua-sec \
+    tzdata \
+    && echo $TZ > /etc/timezone \
+    && rm /etc/localtime \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && apt-get clean
 
 # build/install OpenResty
 ENV OPENRESTY_VERSION=1.11.2.4
